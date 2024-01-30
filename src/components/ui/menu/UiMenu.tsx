@@ -7,11 +7,11 @@ const UiMenu: React.FC<MenuProps> = (_props) => (
       components: {
         Menu: {
           groupTitleColor: '#121926',
-          itemHoverBg: '#EDE7F6',
+          itemHoverBg: '#E3F2FD',
           itemSelectedColor: '#08A1F7',
           subMenuItemBg: '#fff',
           colorPrimary: '#08A1F7',
-          controlItemBgActive: '#EDE7F6',
+          controlItemBgActive: '#E3F2FD',
           groupTitleFontSize: 14,
         },
       },
