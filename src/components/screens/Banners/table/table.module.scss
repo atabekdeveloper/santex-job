@@ -1,0 +1,20 @@
+.items {
+  margin-bottom: 10px;
+  width: 100%;
+  min-width: 400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  .item {
+    padding: 10px 15px;
+    width: 100%;
+    margin: auto;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    cursor: pointer;
+    &.active {
+      background-color: #eee;
+    }
+  }
+}
