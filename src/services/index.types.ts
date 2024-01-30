@@ -19,6 +19,6 @@ export type TGetParamItem = {
 };
 export type TGetParamsChange = {
   limit?: number;
-  page: number;
+  page?: number;
 };
 export type TRoleItemTypes = 'admin' | 'worker' | 'super-admin';

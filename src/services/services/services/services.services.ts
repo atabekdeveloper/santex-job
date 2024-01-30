@@ -6,7 +6,7 @@ import { TServiceChange, TServiceItem } from './services.types';
 
 export const fetchGetServices = async (params?: TGetParamsChange): Promise<SR<TServiceItem>> => {
   const res = await api.get('/admin/services', {
-    params: { limit: 10, page: params?.page },
+    params: { limit: params?.limit, page: params?.page },
   });
   return res.data;
 };

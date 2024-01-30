@@ -15,7 +15,7 @@ const BannerForm: React.FC = () => {
   const [form] = Form.useForm();
   const [uploadFile, setUploadFile] = React.useState<string>('');
 
-  const { data: services } = useGetServicesQuery();
+  const { data: services } = useGetServicesQuery({ limit: 1000 });
   const { mutate: addBanner, isPending: addLoading } = useCreateBannerMutation();
   const { mutate: editBanner, isPending: editLoading } = useEditBannerMutation();
 
@@ -69,6 +69,12 @@ const BannerForm: React.FC = () => {
           rules={[{ required: true, message: formMessage('Сервис') }]}
         >
           <Select
+            showSearch
+            optionFilterProp="children"
+            filterOption={(input, { label }: any) => {
+              const inputLabel = `${label}`;
+              return inputLabel.toLowerCase().includes(input.toLowerCase());
+            }}
             options={services?.data.map((service) => ({ value: service.id, label: service.name }))}
           />
         </Form.Item>
