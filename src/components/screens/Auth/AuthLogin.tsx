@@ -1,7 +1,7 @@
 import { Button, Form, Input } from 'antd';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from 'src/assets/images/berry.svg';
+import logo from 'src/assets/images/santexnika.svg';
 import { UiPhoneIMaskInput } from 'src/components/ui';
 import { useErrorNotification } from 'src/hooks';
 import { TAuthLogin } from 'src/services/auth/auth.types';

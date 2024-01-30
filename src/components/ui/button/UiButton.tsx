@@ -4,7 +4,7 @@ import React from 'react';
 const UiButton: React.FC<ButtonProps> = (_props) => {
   const { color } = _props;
   return (
-    <ConfigProvider theme={{ token: { colorPrimary: color || '#7D5DFE' } }}>
+    <ConfigProvider theme={{ token: { colorPrimary: color || '#08A1F7' } }}>
       <Button type="primary" {..._props} />
     </ConfigProvider>
   );

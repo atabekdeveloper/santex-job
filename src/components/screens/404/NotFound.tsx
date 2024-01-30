@@ -1,6 +1,6 @@
 import { Result } from 'antd';
 import React from 'react';
-import berry from 'src/assets/images/berry.svg';
+import berry from 'src/assets/images/santexnika.svg';
 
 const NotFound: React.FC = () => (
   <Result

@@ -43,6 +43,9 @@ const HomeWorkerOrderCounts: React.FC = () => {
         name: 'Количество',
         type: 'bar',
         barWidth: '50%',
+        itemStyle: {
+          color: '#08A1F7',
+        },
         data: sortedWorkers?.map((value) => value.orders_count),
       },
     ],

@@ -2,7 +2,7 @@ import { Avatar, Popover } from 'antd';
 import React from 'react';
 import { FiSettings } from 'react-icons/fi';
 import { useLocation, useNavigate } from 'react-router-dom';
-import berry from 'src/assets/images/berry.svg';
+import berry from 'src/assets/images/santexnika.svg';
 import { UiMenu } from 'src/components/ui';
 import { useAuthLogoutMutation, useGetAuthUserQuery } from 'src/services/index.api';
 import { useAuthPersistStore } from 'src/store';

@@ -3,7 +3,7 @@ import React from 'react';
 import { BsArrowsFullscreen } from 'react-icons/bs';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import screenfull from 'screenfull';
-import logo from 'src/assets/images/berry.svg';
+import logo from 'src/assets/images/santexnika.svg';
 import { useResponsive } from 'src/hooks';
 import { useToggleStore } from 'src/store';
 

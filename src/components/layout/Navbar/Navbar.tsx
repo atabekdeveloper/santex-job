@@ -1,7 +1,7 @@
 import { Drawer } from 'antd';
 import clsx from 'clsx';
 import React from 'react';
-import logo from 'src/assets/images/berry.svg';
+import logo from 'src/assets/images/santexnika.svg';
 import { useResponsive } from 'src/hooks';
 import { useToggleStore } from 'src/store';
 
