@@ -1,12 +1,12 @@
 .home {
   .item {
+    // position: relative;
+    // resize: both;
+    // overflow: auto;
+    width: 100%;
     padding: 20px 10px;
     background-color: #fff;
     border-radius: 10px;
     margin-bottom: 20px;
-    h1 {
-      font-size: 20px;
-      padding-bottom: 10px;
-    }
   }
 }

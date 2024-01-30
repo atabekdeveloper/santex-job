@@ -11,12 +11,15 @@ const HomeWorkerRatingCounts: React.FC = () => {
       name: worker.name,
     }));
   const option = {
+    title: {
+      text: 'Сотрудники / Количество рейтингов',
+    },
     tooltip: {
       trigger: 'item',
     },
     legend: {
-      orient: 'vertical',
-      left: 'left',
+      left: 'center',
+      bottom: 0,
     },
     series: [
       {

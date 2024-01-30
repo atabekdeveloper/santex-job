@@ -9,6 +9,9 @@ const HomeWorkerOrderCounts: React.FC = () => {
     .sort((a, b) => b.orders_count - a.orders_count);
 
   const option = {
+    title: {
+      text: 'Сотрудники / Количество заказов',
+    },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -39,7 +42,7 @@ const HomeWorkerOrderCounts: React.FC = () => {
       {
         name: 'Количество',
         type: 'bar',
-        barWidth: '60%',
+        barWidth: '50%',
         data: sortedWorkers?.map((value) => value.orders_count),
       },
     ],

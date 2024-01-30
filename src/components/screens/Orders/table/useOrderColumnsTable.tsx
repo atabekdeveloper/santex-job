@@ -7,7 +7,7 @@ import { formatEmptyValue } from 'src/utils';
 export const useOrderColumnsTable = () => {
   const columns: ColumnsType<TOrdersItem> = [
     {
-      title: 'Телефон',
+      title: 'Телефон (Клиент)',
       dataIndex: 'phone',
       key: 'phone',
       render: (_, r) => formatEmptyValue(r.client?.phone),
