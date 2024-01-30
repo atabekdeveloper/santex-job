@@ -1,29 +1,40 @@
+import ReactECharts from 'echarts-for-react';
 import React from 'react';
 import { useGetStatisticsWorkersQuery } from 'src/services/statistics';
 
-import { Pie } from '@ant-design/charts';
-
 const HomeWorkerRatingCounts: React.FC = () => {
   const { data: workers } = useGetStatisticsWorkersQuery();
-  const config = {
-    data: workers?.data.filter((worker) => worker.rating_count),
-    angleField: 'rating_count',
-    colorField: 'name',
-    label: {
-      text: 'rating_count',
-      style: {
-        fontWeight: 'bold',
-      },
+  const sortedWorkers = workers?.data
+    .filter((el) => el.rating_count)
+    .map((worker) => ({
+      value: worker.rating_count,
+      name: worker.name,
+    }));
+  const option = {
+    tooltip: {
+      trigger: 'item',
     },
     legend: {
-      color: {
-        title: false,
-        position: 'right',
-        rowPadding: 5,
-      },
+      orient: 'vertical',
+      left: 'left',
     },
+    series: [
+      {
+        name: 'Рейтинг',
+        type: 'pie',
+        radius: '50%',
+        data: sortedWorkers,
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)',
+          },
+        },
+      },
+    ],
   };
-  return <Pie {...config} />;
+  return <ReactECharts option={option} />;
 };
 
 export { HomeWorkerRatingCounts };

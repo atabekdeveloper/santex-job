@@ -1,31 +1,50 @@
+import ReactECharts from 'echarts-for-react';
 import React from 'react';
 import { useGetStatisticsWorkersQuery } from 'src/services/statistics';
 
-import { Column } from '@ant-design/charts';
-
 const HomeWorkerOrderCounts: React.FC = () => {
   const { data: workers } = useGetStatisticsWorkersQuery();
-  const config = {
-    data: workers?.data
-      .sort((a, b) => b.orders_count - a.orders_count)
-      .filter((worker) => worker.orders_count),
-    xField: 'name',
-    yField: 'orders_count',
-    barWidthRatio: 0.8,
-    label: {
-      text: (d: any) => d.orders_count,
-      textBaseline: 'bottom',
-    },
-    meta: {
-      name: {
-        alias: 'Имя',
-      },
-      orders_count: {
-        alias: 'Заказы',
+  const sortedWorkers = workers?.data
+    .filter((worker) => worker.orders_count)
+    .sort((a, b) => b.orders_count - a.orders_count);
+
+  const option = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow',
       },
     },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true,
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: sortedWorkers?.map((value) => value.name),
+        axisTick: {
+          alignWithLabel: true,
+        },
+      },
+    ],
+    yAxis: [
+      {
+        type: 'value',
+      },
+    ],
+    series: [
+      {
+        name: 'Количество',
+        type: 'bar',
+        barWidth: '60%',
+        data: sortedWorkers?.map((value) => value.orders_count),
+      },
+    ],
   };
-  return <Column {...config} />;
+  return <ReactECharts option={option} />;
 };
 
 export { HomeWorkerOrderCounts };
