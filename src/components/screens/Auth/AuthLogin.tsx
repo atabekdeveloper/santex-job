@@ -3,7 +3,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from 'src/assets/images/santexnika.svg';
 import { UiPhoneIMaskInput } from 'src/components/ui';
-import { useErrorNotification } from 'src/hooks';
 import { TAuthLogin } from 'src/services/auth/auth.types';
 import { useAuthLoginMutation } from 'src/services/index.api';
 import { useAuthPersistStore } from 'src/store';
@@ -17,7 +16,7 @@ const AuthLogin: React.FC = () => {
   const navigate = useNavigate();
 
   // eslint-disable-next-line object-curly-newline
-  const { mutate, isPending, isSuccess, data: loginData, isError, error } = useAuthLoginMutation();
+  const { mutate, isPending, isSuccess, data: loginData } = useAuthLoginMutation();
 
   const onFinish = (values: TAuthLogin) => {
     mutate({ ...values, phone: formatPhoneStringJoin(values.phone) });
@@ -30,7 +29,6 @@ const AuthLogin: React.FC = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
-  useErrorNotification({ isError, desc: error?.response?.data?.message });
   return (
     <div className={s.auth}>
       <div className={s.body}>

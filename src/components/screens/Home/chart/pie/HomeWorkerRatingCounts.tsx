@@ -4,6 +4,7 @@ import { useGetStatisticsWorkersQuery } from 'src/services/statistics';
 
 const HomeWorkerRatingCounts: React.FC = () => {
   const { data: workers } = useGetStatisticsWorkersQuery();
+
   const sortedWorkers = workers?.data
     .filter((el) => el.rating_count)
     .map((worker) => ({

@@ -4,6 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { useLocation, useNavigate } from 'react-router-dom';
 import berry from 'src/assets/images/santexnika.svg';
 import { UiMenu } from 'src/components/ui';
+import { useErrorNotification } from 'src/hooks';
 import { useAuthLogoutMutation, useGetAuthUserQuery } from 'src/services/index.api';
 import { useAuthPersistStore } from 'src/store';
 
@@ -17,7 +18,7 @@ const HeaderSetting: React.FC = () => {
   const signOut = useAuthPersistStore((state) => state.signOut);
   const [open, setOpen] = React.useState(false);
 
-  const { data: user } = useGetAuthUserQuery();
+  const { data: user, isError, error } = useGetAuthUserQuery();
   const { mutate: logout } = useAuthLogoutMutation();
 
   const onLogout = () => {
@@ -33,6 +34,8 @@ const HeaderSetting: React.FC = () => {
     navigate(key);
     setOpen(false);
   };
+
+  useErrorNotification({ isError, desc: `${error?.message}` });
 
   const content = (
     <div className={s.content}>
