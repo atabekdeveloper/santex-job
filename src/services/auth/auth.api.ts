@@ -23,16 +23,14 @@ const useAuthLoginMutation = () => {
   });
 };
 
-const useAuthLogoutMutation = () => {
-  const client = useQueryClient();
-  return useMutation({
+const useAuthLogoutMutation = () =>
+  // eslint-disable-next-line implicit-arrow-linebreak
+  useMutation({
     mutationFn: fetchAuthLogout,
     onSuccess: (res) => {
-      client.invalidateQueries({ queryKey: ['auth'] });
       message.success(res.message);
     },
     onError: (err: any) => message.error(err.response.data.message),
   });
-};
 
 export { useAuthLoginMutation, useAuthLogoutMutation, useGetAuthUserQuery };

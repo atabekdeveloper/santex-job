@@ -19,23 +19,16 @@ const HeaderSetting: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
   const { data: user, isError, error } = useGetAuthUserQuery();
-  const { mutate: logout } = useAuthLogoutMutation();
-
-  const onLogout = () => {
-    setTimeout(() => signOut(), 500);
-    logout();
-  };
+  const { mutate: logout, isSuccess } = useAuthLogoutMutation();
 
   const onSelectMenuItem = (key: string) => {
     if (key === '/logout') {
-      onLogout();
+      logout();
       return;
     }
     navigate(key);
     setOpen(false);
   };
-
-  useErrorNotification({ isError, desc: `${error?.message}` });
 
   const content = (
     <div className={s.content}>
@@ -55,6 +48,11 @@ const HeaderSetting: React.FC = () => {
       />
     </div>
   );
+  useErrorNotification({ isError, desc: `${error?.message}` });
+  React.useEffect(() => {
+    if (isSuccess) signOut();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess]);
   return (
     <Popover
       open={open}

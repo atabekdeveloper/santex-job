@@ -3,9 +3,6 @@ import { TableLoader } from 'src/components/shareds';
 
 import loadable from '@loadable/component';
 
-// const Home = loadable(() => import('src/components/screens/Home/Home'), {
-//   fallback: <TableLoader />,
-// });
 const Profile = loadable(() => import('src/components/screens/Profile/Profile'), {
   fallback: <TableLoader />,
 });
