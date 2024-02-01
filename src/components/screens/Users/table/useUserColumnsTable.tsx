@@ -43,6 +43,18 @@ export const useUserColumnsTable = (_props: TColumnsTable) => {
       render: formatEmptyValue,
     },
     {
+      title: 'Создано',
+      dataIndex: 'created_at',
+      key: 'created_at',
+      ellipsis: true,
+    },
+    {
+      title: 'Обновлено',
+      dataIndex: 'updated_at',
+      key: 'updated_at',
+      ellipsis: true,
+    },
+    {
       fixed: 'right',
       key: 'action',
       align: 'end',

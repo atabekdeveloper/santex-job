@@ -46,6 +46,18 @@ export const useOrderColumnsTable = () => {
       key: 'rating',
       render: (value: number) => <Rate value={value} disabled />,
     },
+    {
+      title: 'Создано',
+      dataIndex: 'created_at',
+      key: 'created_at',
+      ellipsis: true,
+    },
+    {
+      title: 'Обновлено',
+      dataIndex: 'updated_at',
+      key: 'updated_at',
+      ellipsis: true,
+    },
   ];
   return columns;
 };
