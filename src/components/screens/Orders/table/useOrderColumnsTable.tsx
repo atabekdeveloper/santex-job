@@ -47,7 +47,6 @@ export const useOrderColumnsTable = () => {
       title: 'Оценка',
       dataIndex: 'rating',
       key: 'rating',
-      ellipsis: true,
       render: (value: number) => <Rate value={value} disabled />,
     },
     {
