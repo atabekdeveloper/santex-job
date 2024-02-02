@@ -10,18 +10,21 @@ export const useOrderColumnsTable = () => {
       title: 'Телефон (Клиент)',
       dataIndex: 'phone',
       key: 'phone',
+      ellipsis: true,
       render: (_, r) => formatEmptyValue(r.client?.phone),
     },
     {
       title: 'Работник',
       dataIndex: 'worker',
       key: 'worker',
+      ellipsis: true,
       render: (_, r) => formatEmptyValue(r.worker?.name),
     },
     {
       title: 'Сервис',
       dataIndex: 'service',
       key: 'service',
+      ellipsis: true,
       render: (_, r) => r.service?.name,
     },
     {
@@ -53,10 +56,18 @@ export const useOrderColumnsTable = () => {
       ellipsis: true,
     },
     {
-      title: 'Обновлено',
-      dataIndex: 'updated_at',
-      key: 'updated_at',
+      title: 'Принято',
+      dataIndex: 'started_at',
+      key: 'started_at',
       ellipsis: true,
+      render: (value) => formatEmptyValue(value),
+    },
+    {
+      title: 'Закончено',
+      dataIndex: 'finished_at',
+      key: 'finished_at',
+      ellipsis: true,
+      render: (value) => formatEmptyValue(value),
     },
   ];
   return columns;
