@@ -36,16 +36,19 @@ export const useBannerColumnsTable = (_props: TColumnsTable) => {
       title: 'Название',
       dataIndex: 'title',
       key: 'title',
+      ellipsis: true,
     },
     {
       title: 'Описание',
       dataIndex: 'description',
       key: 'description',
+      ellipsis: true,
     },
     {
       title: 'Сервис',
       dataIndex: 'service_name',
       key: 'service_name',
+      ellipsis: true,
     },
     {
       title: 'Общественный',
