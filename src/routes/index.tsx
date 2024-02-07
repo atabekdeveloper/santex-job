@@ -1,8 +1,10 @@
-import Home from 'src/components/screens/Home/Home';
 import { TableLoader } from 'src/components/shareds';
 
 import loadable from '@loadable/component';
 
+const Home = loadable(() => import('src/components/screens/Home/Home'), {
+  fallback: <TableLoader />,
+});
 const Profile = loadable(() => import('src/components/screens/Profile/Profile'), {
   fallback: <TableLoader />,
 });
@@ -25,7 +27,6 @@ const NotFound = loadable(() => import('src/components/screens/404/NotFound'), {
 const routes = [
   { path: '/', element: <Home /> },
   { path: '/profile', element: <Profile /> },
-  { path: '/users', element: <Users /> },
   { path: '/users', element: <Users /> },
   { path: '/services', element: <Services /> },
   { path: '/banners', element: <Banners /> },
