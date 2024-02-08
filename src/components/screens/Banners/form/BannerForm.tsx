@@ -16,8 +16,16 @@ const BannerForm: React.FC = () => {
   const [uploadFile, setUploadFile] = React.useState<string>('');
 
   const { data: services } = useGetServicesQuery({ limit: 1000 });
-  const { mutate: addBanner, isPending: addLoading } = useCreateBannerMutation();
-  const { mutate: editBanner, isPending: editLoading } = useEditBannerMutation();
+  const {
+    mutate: addBanner,
+    isPending: addLoading,
+    isSuccess: addSuccess,
+  } = useCreateBannerMutation();
+  const {
+    mutate: editBanner,
+    isPending: editLoading,
+    isSuccess: editSuccess,
+  } = useEditBannerMutation();
 
   const paramsForm = useFormStorageStore((state) => state.paramsForm);
 
@@ -39,6 +47,9 @@ const BannerForm: React.FC = () => {
   React.useEffect(() => {
     if (paramsForm) form.setFieldsValue(paramsForm);
   }, [paramsForm, form]);
+  React.useEffect(() => {
+    if (addSuccess || editSuccess) setUploadFile('');
+  }, [addSuccess, editSuccess]);
   return (
     <GlobalDrawer form={form} isLoading={addLoading || editLoading}>
       <Form
