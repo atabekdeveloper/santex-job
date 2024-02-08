@@ -36,6 +36,7 @@ const BannerTable: React.FC = () => {
       loading={isLoading}
       title={() => (
         <HeadTable
+          title="Баннеры"
           childs={[
             <Tooltip title="Сортировать">
               <Popover

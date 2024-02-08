@@ -25,6 +25,7 @@ const ServiceTable: React.FC = () => {
       loading={isLoading}
       title={() => (
         <HeadTable
+          title="Сервисы"
           childs={[
             <Tooltip title="Добавить">
               <UiButton icon={<AiOutlinePlus />} onClick={toggleDrawer} aria-label="Add" />

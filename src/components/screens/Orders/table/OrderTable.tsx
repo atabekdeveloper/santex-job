@@ -19,7 +19,7 @@ const OrderTable: React.FC = () => {
       dataSource={orders?.data}
       columns={columns}
       loading={isLoading}
-      title={() => <HeadTable />}
+      title={() => <HeadTable title="Заказы" />}
       pagination={{
         total: orders?.total,
         current: currentPage,

@@ -38,6 +38,7 @@ const UserTable: React.FC = () => {
       loading={isLoading}
       title={() => (
         <HeadTable
+          title="Пользователи"
           childs={[
             <Select
               value={role}
