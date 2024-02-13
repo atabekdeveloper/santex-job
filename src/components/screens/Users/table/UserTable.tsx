@@ -44,7 +44,10 @@ const UserTable: React.FC = () => {
               value={role}
               onSelect={(value) => setRole(value)}
               style={{ width: 150 }}
-              options={roles?.data.map(({ name }) => ({ value: name, label: name }))}
+              options={roles?.data.map(({ name, default_name }) => ({
+                value: name,
+                label: default_name,
+              }))}
             />,
             <Tooltip title="Добавить">
               <UiButton icon={<AiOutlinePlus />} onClick={toggleDrawer} aria-label="Add" />
