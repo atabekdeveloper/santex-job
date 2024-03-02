@@ -7,4 +7,4 @@ export const formatPrice = (number: number, type: string) => {
   return `0 ${type}`;
 };
 export const formatNum = <T>(value: T) => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-export const formatEmptyValue = (value: string) => value || '-';
+export const formatEmptyValue = (value?: string) => value || '-';
