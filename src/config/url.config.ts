@@ -1,1 +1,1 @@
-export const baseUrl = '';
+export const baseUrl = 'https://santex.karsoft.uz/api/v1';
